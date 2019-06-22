@@ -1,0 +1,884 @@
+@import "vars"
+@import "fonts"
+@import "libs"
+@import "_mixins/mixins"
+
++reset
+
+*
+	box-sizing: border-box
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+html, body
+	height: 100%
+
+html
+  +mq(md)
+    font-size: 15px
+  +mq(sm)
+    font-size: 14px
+  +mq(xs)
+    font-size: 13px
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: $default-font
+	overflow-x: hidden
+	input, textarea
+		border: #666 1px solid
+		outline: none
+		&:focus:required:invalid
+			border-color: red
+		&:required:valid
+			border-color: green
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+	&.img-width
+		width: 100%
+
+.text-center
+	text-align: center
+
+b, strong
+	font-weight: bold
+
+.btn
+  cursor: pointer
+  +mq(xs)
+  	width: 100%
+  &:focus
+    outline: none
+
+.container
+  +wrapper
+
+// Часто-используемоем
+h2
+	text-align: center
+	font-size: 3rem
+	padding-top: 70px
+	text-transform: uppercase
+	font-weight: 700
+	&.no-line:after
+		display: none
+	&:after
+		content: ''
+		display: block
+		height: 3px
+		width: 150px
+		background: $accent
+		margin: 0 auto
+		margin-top: 5px
+
+.btn
+	background: $accent
+	&:hover
+		background: $accent
+	&:active
+		background: $accent
+	&:visited
+		background: $accent
+
+.accent
+	background: $accent
+	color: #fff
+	&-light
+		background: lighten($accent, 10%)
+		color: #fff		
+
+.accent-blue
+	color: #fff
+	background: $accent-blue
+	&-light
+		color: #fff
+		background: lighten($accent-blue, 10%)
+
+.accent-green
+	color: #fff
+	background: $accent-green
+	&-light
+		color: #fff
+		background: lighten($accent-green, 10%)
+
+.btn.accent-green
+	&:hover
+		background: $accent-green
+	&:active
+		background: $accent-green
+	&:visited
+		background: $accent-green
+.btn.accent-blue
+	&:hover
+		background: $accent-blue
+	&:active
+		background: $accent-blue
+	&:visited
+		background: $accent-blue
+
+section
+	padding-bottom: 50px
+	.subtitle
+		font-size: 2rem
+		text-align: center
+		max-width: 700px
+		margin: 35px auto
+		line-height: 2.3rem
+		color: $accent
+		&-black
+			color: #000
+	+mq(xs)
+		padding-bottom: 50px
+
+.gradient-accent
+	background: #c94b4b
+	background: -webkit-linear-gradient(to left, #4b134f, #c94b4b)
+	background: linear-gradient(to left, #4b134f, #c94b4b)
+.gradient-accent-blue
+	background: #000046
+	background: -webkit-linear-gradient(to left, #1CB5E0, #000046)
+	background: linear-gradient(to left, #1CB5E0, #000046)
+ul.ul-tick
+	li
+		span:first-child
+			margin-right: 10px
+// Часто-используемоем End
+
+// Навигация
+nav
+	height: 94px
+	line-height: 94px
+	background: transparent
+	box-shadow: none
+	padding: 0 60px
+	transition: all .4s
+	z-index: 10
+	&.fixed
+		+mq(custom, min, 1024)
+			position: fixed
+			top: 0
+			left: 0
+			height: 64px
+			line-height: 64px
+			padding: 0 80px
+			background: #fff
+			box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2)
+	+mq(md)
+		padding: 10px
+	ul
+		a
+			color: #000
+			font-weight: 400
+	a
+		color: $accent
+	.sidenav-trigger
+		font-size: 25px
+	.brand-logo
+		color: $accent
+		font-weight: 300
+		padding: 0 10px
+		+mq(md)
+			margin: 0
+			width: 100%
+			text-align: center
+		+mq(xs)
+			font-size: 1.9rem
+		+mq(custom, max, 360)
+			text-align: right
+// Навигация End
+
+// Хедер
+.header
+	position: relative
+	text-align: center
+	padding-bottom: 150px
+	.btn
+		margin-top: 30px
+		height: 60px
+		line-height: 60px
+		padding: 0 20px
+		font-size: 1.1rem
+	+mq(xs)
+		padding-bottom: 50px
+	&-subtitle
+		font-size: 2rem
+		line-height: 2rem
+		margin-top: 15px
+		+mq(xs)
+			font-size: 1.7rem
+			line-height: 1.7rem
+	&-about
+		display: -webkit-flex
+		display: -moz-flex
+		display: -ms-flex
+		display: -o-flex
+		display: flex
+		justify-content: center
+		align-items: center
+		margin-top: 100px
+		+mq(xs)
+			flex-direction: column
+			margin-top: 50px
+		&-text
+			max-width: 459px
+			text-align: left
+		&-img
+			margin-right: 45px
+			+mq(xs)
+				margin-bottom: 20px
+				margin-right: 0
+		img
+			border-radius: 50%
+			display: inline-block
+			vertical-align: middle
+		p
+			font-size: 2.7rem
+			line-height: 2.8rem
+			font-weight: 300
+			display: inline-block
+			vertical-align: middle
+			+mq(xs)
+				text-align: center
+				font-size: 2rem
+				line-height: 2.3rem
+h1
+	margin-top: 150px
+	font-size: 4.5rem
+	line-height: 4.5rem
+	font-weight: 700
+	color: $accent
+	+mq(xs)
+		margin-top: 50px
+		font-size: 3rem
+		line-height: 3rem
+// Хедер End
+
+// Проблемы
+.problems
+	background: #FAFAFA
+	&-list
+		margin-top: 100px
+		overflow: hidden
+		display: -webkit-flex
+		display: -moz-flex
+		display: -ms-flex
+		display: -o-flex
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-between
+		+mq(xs)
+			margin-top: 50px
+	&-item
+		padding-right: 25px
+		line-height: 1.5rem
+		font-size: 1.6rem
+		width: 33%
+		display: -webkit-flex
+		display: -moz-flex
+		display: -ms-flex
+		display: -o-flex
+		display: flex
+		align-items: center
+		margin-bottom: 80px
+		+mq(sm)
+			font-size: 1.1em
+			line-height: 1.3rem
+		+mq(xs)
+			width: 50%
+			padding-right: 15px
+			font-size: 1rem
+			line-height: 1.1rem
+			margin-bottom: 15px
+		img
+			width: 54px
+			height: auto
+			margin-right: 20px
+			+mq(sm)
+				margin-right: 5px
+			+mq(xs)
+				width: 35px
+				margin-right: 5px
+// Проблемы End
+
+// Цели
+.aims
+	&-list
+		margin-top: 100px
+		+row-flex
+		+mq(xs)
+			margin-top: 50px
+	&-item
+		+col
+		+size(4)
+		+size-sm(6)
+		justify-content: space-between
+		text-align: center
+		margin-bottom: 40px
+		+mq(xs)
+			margin-bottom: 20px
+		img
+			width: 180px
+			height: auto
+			+mq(xs)
+				width: 78px
+		p
+			margin-top: 10px
+			font-size: 2rem
+			color: $accent
+			+mq(xs)
+				font-size: 1.3rem
+				line-height: 1.3rem
+// Цели End
+
+// Timeline
+.timeline-wrap
+	background: #FAFAFA
+
+.timeline
+  position: relative
+  margin-top: 60px
+  padding-bottom: 100px
+  +mq(xs)
+  	padding-bottom: 50px
+  &-title
+  	font-size: 1.5rem
+  	line-height: 1.5rem
+  	margin-bottom: 15px !important
+  	color: $accent
+  	text-transform: uppercase
+  &-text
+  	font-size: 1.2rem
+  	line-height: 1.3rem
+
+  .timeline-event
+    position: relative
+    padding-top: 5px
+    padding-bottom: 5px
+    &:nth-child(odd)
+    	text-align: right
+    	+mq(custom, max, 600)
+    		text-align: left
+    .timeline-content
+      position: relative
+      width: calc(50% - 50px)
+    &::before
+      display: block
+      content: ""
+      width: 2px
+      height: calc(50% - 30px)
+      position: absolute
+      background: #d2d2d2
+      left: calc(50% - 1px)
+      top: 0
+    &::after
+      display: block
+      content: ""
+      width: 2px
+      height: calc(50% - 30px)
+      position: absolute
+      background: #d2d2d2
+      left: calc(50% - 1px)
+      top: calc(50% + 30px)
+    &:first-child::before, &:last-child::after
+      display: none
+    &:nth-child(even) .timeline-content
+      margin-left: calc(50% + 50px)
+    &:nth-child(odd) .timeline-content
+      margin-left: 0
+  .timeline-badge
+    display: block
+    position: absolute
+    width: 40px
+    height: 40px
+    background: $accent
+    line-height: 40px
+    top: calc(50% - 20px)
+    right: calc(50% - 20px)
+    border-radius: 50%
+    text-align: center
+    cursor: pointer
+    transition: opacity .2s
+
+.timeline-badge:hover
+  opacity: .8
+
+@media (max-width: 600px)
+  .timeline
+    .timeline-event
+      .timeline-content
+        width: calc(100% - 70px)
+      &::before, &::after
+        left: 19px
+      &:nth-child(even) .timeline-content, &:nth-child(odd) .timeline-content
+        margin-left: 70px
+    .timeline-badge
+      left: 0
+
+.waves-effect.waves-accent .waves-ripple 
+  background-color: rgba(200, 28, 85, 0.65)
+// Timeline End
+
+// Блок Моё обучение помогает
+.helps
+	&-list
+		display: -webkit-flex
+		display: -moz-flex
+		display: -ms-flex
+		display: -o-flex
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-around
+		margin-top: 70px
+	&-item
+		text-align: center
+		max-width: 300px
+		margin-bottom: 15px
+		img
+			width: 128px
+			height: auto
+		p
+			margin-top: 10px
+			color: $accent
+			font-size: 1.6rem
+			line-height: 1.6rem
+// Блок Моё обучение помогает End
+
+// Секция Услуг
+.start
+	color: #fff
+	background: #7F7FD5
+	background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5)
+	background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5)
+	h2
+		&:after
+			background: $accent-blue
+
+	&-list
+		margin-top: 60px
+	.card
+		text-align: center
+		position: relative
+		top: 0
+		transition: all .3s ease-in-out
+		&:hover
+			top: -10px
+		&-title
+			color: $accent-blue !important
+		p
+			font-size: 1.2rem
+			line-height: 1.6rem
+			color: #000
+		.btn
+			margin-top: 20px
+			background: none
+			border: 2px solid $accent-blue
+			color: #000
+			transition: all .2s
+			&:hover
+				background: $accent-blue
+				color: #fff
+		.card-image
+			img
+				width: 130px
+				height: auto
+				margin: 0 auto
+				padding-top: 50px
+// Секция Услуг End
+
+// Блок Отзывов
+.reviews
+	color: #000
+	.btn
+		margin-top: 30px
+		background: $accent-blue
+	&-list
+		margin-top: 120px
+		padding: 0 40px
+		+mq(xs)
+			margin-top: 60px
+			padding: 0 0
+		.slick-dots
+			left: 0
+			bottom: -35px
+		.slick-slide
+			margin: 67px 10px 2px 10px
+			text-align: center
+			outline: none !important
+			+mq(xs)
+				margin: 67px 7px 2px 7px
+		.slick-prev
+			left: 0
+			width: 40px
+			height: 40px
+			+mq(xs)
+				left: -27px
+				width: 30px
+				height: 30px
+		.slick-next
+			right: 0
+			width: 40px
+			height: 40px
+			+mq(xs)
+				right: -27px
+				width: 30px
+				height: 30px
+		.slick-prev:before, .slick-next:before
+			color: #fff
+			font-size: 40px
+			+mq(xs)
+				font-size: 30px
+	&-item
+		background: #fff
+		position: relative
+		border-radius: 6px
+		padding: 80px 25px 30px 25px
+		max-width: 450px
+		box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2)
+		+mq(xs)
+			padding: 80px 10px 20px 10px
+		a
+			position: absolute
+			top: 0
+			margin-top: -65.5px
+			left: 50%
+			margin-left: -65.5px
+			&:focus
+				outline: none
+		&-photo
+			border-radius: 50%
+			width: 131px
+			height: auto
+		.vk
+			position: absolute
+			width: 30px
+			right: 0
+			top: 67%
+		.name
+			font-weight: 300
+			font-size: 1.7rem
+			&:after
+				content: ''
+				display: block
+				height: 3px
+				width: 50px
+				background: $accent-blue
+				margin: 0 auto
+				margin-top: 5px
+		.text
+			margin-top: 15px
+			font-size: 1.2rem
+			line-height: 1.8rem
+			text-align: left
+			+mq(xs)
+				font-size: 1.1rem
+// Блок Отзывов End
+
+// Секция Контент
+.myContent
+	.yt-content
+		margin-top: 60px
+		.card
+			&-title
+				line-height: 2.2rem
+			&-content
+				font-size: 1.1rem
+				line-height: 1.5rem
+			&-action a
+				color: $accent !important
+// Секция Контент End
+
+// Обо мне
+.about
+	padding-bottom: 100px
+	color: #fff
+	+mq(xs)
+		padding-bottom: 50px
+	&-content
+		margin-top: 60px
+		display: -webkit-flex
+		display: -moz-flex
+		display: -ms-flex
+		display: -o-flex
+		display: flex
+		justify-content: center
+		+mq(xs)
+			flex-direction: column
+		img
+			border-radius: 50%
+			+mq(xs)
+				width: 200px
+				height: auto
+	&-img
+		+mq(xs)
+			text-align: center
+	&-text
+		max-width: 470px
+		margin-left: 60px
+		+mq(xs)
+			margin-top: 20px
+			margin-left: 0
+		+mq(sm)
+			margin-left: 30px
+		p
+			font-size: 1.3rem
+			line-height: 1.9rem
+			margin-top: 15px
+	&-title
+		font-weight: 300
+		font-size: 3rem
+		line-height: 3.4rem
+		+mq(xs)
+			font-size: 2.5rem
+// Обо мне End
+
+// Секция-подписка на рассылку
+.trenings
+	.btn
+		margin-top: 30px
+	.carousel .indicators .indicator-item
+		+mq(xs)
+			margin: 8px 3px
+
+.new-content
+	color: #fff
+	h2
+		margin-bottom: 50px
+		+mq(xs)
+			font-size: 1.5rem
+	.btn
+		background: $accent-blue
+		margin: 10px 40px
+		+mq(xs)
+			margin: 10px 0px
+		&:hover
+			background: $accent-blue
+		&:active
+			background: $accent-blue
+		&:visited
+			background: $accent-blue
+// Секция-подписка на рассылку End
+
+// Контакты
+.contacts
+	&-content
+		display: -webkit-flex
+		display: -moz-flex
+		display: -ms-flex
+		display: -o-flex
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-around
+	h2
+		margin-bottom: 70px
+	ul
+		margin-bottom: 30px
+		li
+			font-size: 1.5rem
+	.social
+		.email
+			display: block
+			color: $accent
+			font-size: 1.7rem
+			margin-top: 5px
+		.social-link:not(:nth-child(3))
+			margin-right: 10px
+			+mq(xs)
+				margin-right: 5px
+		img
+			width: 80px
+			height: auto
+			+mq(xs)
+				width: 75px
+// Контакты End
+
+// Preloader
+.preloader
+	&-container
+		background: #fff
+		position: fixed
+		width: 100%
+		height: 100%
+		top: 0
+		left: 0
+		z-index: 100
+	&-wrapper
+		position: absolute
+		left: 50%
+		top: 50%
+		margin-top: -32px
+		margin-left: -32px
+		.spinner-blue, .spinner-blue-only
+			border-color: $accent
+// Preloader End
+
+// Модалка-консультация
+.consult
+	&-icons
+		&-list
+			display: -webkit-flex
+			display: -moz-flex
+			display: -ms-flex
+			display: -o-flex
+			display: flex
+			flex-wrap: wrap
+			justify-content: space-around
+			margin-top: 100px
+			+mq(xs)
+				margin-top: 50px
+		&-item
+			text-align: center
+			max-width: 290px
+			margin-bottom: 20px
+			img
+				width: auto
+				height: 140px
+			&-2
+				img
+					height: 50px
+					height: auto
+			.title
+				font-weight: 300
+				font-size: 1.7rem
+				margin-top: 20px
+				color: $accent
+			.text
+				font-size: 1.4rem
+				line-height: 1.7rem
+				margin-top: 10px
+// Модалка-консультация End
+
+// Pricing
+.pricing
+	margin-top: 40px
+.pricing
+  &.style-1 .price, &.style-2 .plan-title
+    border-top-left-radius: 2px
+    border-top-right-radius: 2px
+  &.style-3
+    .plan-title
+      border-top-left-radius: 2px
+      border-top-right-radius: 2px
+      padding: 10px 0
+    .price
+      border-bottom-left-radius: 2px
+      border-bottom-right-radius: 2px
+    .plan-signup-btn
+      position: absolute
+      bottom: 80px
+      right: 20px
+  .price
+    padding: 15px 0
+    h4
+      text-align: center
+  .plan-title h5
+    text-align: center
+  .price span
+    display: inline-block
+    position: relative
+  .plan-title span
+    display: inline-block
+    position: relative
+    padding: 20px 0
+    &.plan
+      font-size: 25px
+      font-weight: 200
+  .price span
+    &.amount
+      font-size: 50px
+      font-weight: 100
+    &.period
+      margin-left: -10px
+    &.currency
+      top: -20px
+      font-size: 16px
+    &.period
+      font-size: 16px
+  .collection li.collection-item:hover
+    background: #f5f5f5
+
+.dark-grey-text
+  color: #121212
+// Pricing End
+
+// Ползное
+.poleznoe
+	&-item
+		margin-top: 40px
+		padding: 0 20px
+		width: 32%
+		display: inline-block
+		vertical-align: top
+		+mq(xs)
+			width: 49%
+			padding: 0 5px
+		p
+			font-size: 1.5rem
+			line-height: 1.8rem
+			margin-top: 10px
+			margin-bottom: 15px
+			+mq(xs)
+				font-size: 1.3rem
+// Полезное end
+
+// Кастомизация модалки
+.modal
+	h4
+		font-size: 2.5rem
+		font-weight: 300
+	&-footer
+		&-close-btn
+			margin-top: 40px
+	.reviews
+		.btn
+			background: $accent
+		.name
+			&:after
+				background: $accent
+	&-subscribe
+		text-align: center
+		.buttons
+			.btn
+				margin: 15px 5px 0px 5px
+		p
+			font-size: 1.2rem
+			line-height: 1.6rem
+			margin-top: 10px
+	&-fullscreen &-content
+		height: 100%
+		padding: 0 !important
+		border: none
+	&-fullscreen
+		background: #fff
+		width: 100%
+		min-height: 100%
+		top: 0 !important
+		padding-bottom: 20px
+		+mq(md)
+			width: 100%
+		h4
+			font-size: 1.6rem
+			font-weight: 300
+			margin-bottom: 20px
+			margin-top: 20px
+		.cross
+			position: absolute
+			right: 30px
+			top: 10px
+			font-size: 30px
+			+mq(xs)
+				right: 10px
+// Кастомизация модалки End
+
+
+@import "media" // Always at the end

@@ -1,0 +1,29 @@
+{
+  "name": "optimizedhtml",
+  "version": "4.1.0",
+  "description": "OptimizedHTML 4 - Start HTML Template",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "WebDesign Master",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^8.6.5",
+    "browser-sync": "^2.24.5",
+    "cssnano": "^4.0.0",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-group-css-media-queries": "^1.2.2",
+    "gulp-notify": "^3.2.0",
+    "gulp-postcss": "^7.0.1",
+    "gulp-rename": "^1.3.0",
+    "gulp-rigger": "^0.5.8",
+    "gulp-sass": "^4.0.1",
+    "gulp-uglify": "^3.0.0",
+    "gulp-wait": "0.0.2",
+    "smart-grid": "^2.1.1",
+    "vinyl-ftp": "^0.6.1"
+  },
+  "dependencies": {}
+}
